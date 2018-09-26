@@ -9,7 +9,7 @@ else:
 time.sleep(0.50)
 
 if name.lower() != "miles":
-    race = str(input("What race do you want to be (you can be a human,dwarf, or elf)\n")).lower()
+    race = str(input("What race do you want to be (you can be a human, dwarf, or elf)\n")).lower()
 elif name.lower() == "miles":
     race = "elf"
     print("You are an elf.")
@@ -36,8 +36,8 @@ class Creature:
         self.damage = damage
         self.speed = speed
         self.dead = dead
-        
-    
+
+
     def update(self):
         if self.health <= 0:
             print("You killed the your enemey, you got one point")
@@ -55,7 +55,7 @@ class Player:
             print("You died the game is now over. You got", points, "points!")
             self.dead = True
             sys.exit(0)
-                        
+
 #stats are out of 10
 goblin = Creature(4, 5, 8)
 bandit = Creature(7, 7, 5)
@@ -114,12 +114,12 @@ def fight():
     action = str(input("What do you want to do? (fight, run, pay)\n")).lower()
     if action != "fight" and action != "run" and action != "pay":
         raise Exception("IBM Error (Idiot Behind Machine)")
-        
+
     #your attack phase starts
     while True:
         if action == "fight" or action == "f":
             if yourturn == True:
-                
+
                 attack_choice = input("Would you like to attack or defend\n")
                 print("It's your turn!")
                 yourturn = False
@@ -133,11 +133,11 @@ def fight():
                     you.health -= enemytype.damage
                     you.update()
                     enemytype.update()
-                    
+
                 attack_choice = "attack"
                 yourturn = True
                 continue
-            
+
             elif attack_choice == "attack" or attack_choice == "a":
                 print("You are now going to attack the enemy")
                 print("*Clashing Sounds*")
@@ -157,7 +157,7 @@ def fight():
                 #switch attack phases
                 attack_choice = "defend"
                 continue
-            
+
         #if you are going to run
         elif action == "run" or action == "r":
             print("Rolling dice...")
@@ -170,7 +170,7 @@ def fight():
             elif runchance < enemytype.speed:
                 print("You rolled a", runchance, "and you needed", enemytype.speed)
                 print("Since you didn't escape you are going to fight the", enemyname)
-                
+
         elif action == "pay" or action == "p":
             if coins >= 5:
                 print("You are paying 5 gold pieces!")
@@ -180,9 +180,9 @@ def fight():
             elif coins < 5:
                 print("You broke child, and you can't afford this so you gonna fight the", enemyname)
                 continue
-            
 
 
-#the game actualy starts            
+
+#the game actualy starts
 fight()
 print("You did it!")
