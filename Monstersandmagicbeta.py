@@ -178,7 +178,7 @@ def fight():
                 checkmoney()
                 break
             elif coins < 5:
-                print("You broke child, and you can't afford this so you gonna fight the", enemyname)
+                print("Because you whisle you have no money, and you can't afford this so you gonna fight the", enemyname)
                 continue
 
 
